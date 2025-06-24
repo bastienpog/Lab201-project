@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import IndexPage from "@/pages/index";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import "@/index.css";
 
@@ -20,7 +21,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<MainLayout />}>
             <Route index element={<IndexPage />} />
             <Route path="login" element={<Login />} />
-            <Route path="admin" element={<Admin />} />
+            <Route path="admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           </Route>
         </Routes>
       </BrowserRouter>
