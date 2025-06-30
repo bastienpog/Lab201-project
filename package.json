@@ -27,6 +27,7 @@
     "@tailwindcss/vite": "^4.0.8",
     "@types/node": "^22.13.5",
     "firebase": "^11.9.1",
+    "framer-motion": "^12.19.2",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
