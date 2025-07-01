@@ -2,9 +2,11 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../services/firebase";
 import { Concert } from "@/pages/Admin";
 
-export default function ConcertList({ concerts }: { concerts: Concert[] }) {
+export default function ConcertList({ concerts, onEdit }: { concerts: Concert[]; onEdit: (concert: Concert) => void }) {
     const handleDelete = async (id: string) => {
-        await deleteDoc(doc(db, "concerts", id));
+        if (window.confirm("Voulez-vous vraiment supprimer ce concert ?")) {
+            await deleteDoc(doc(db, "concerts", id))
+        }
     };
 
     return (
@@ -38,7 +40,13 @@ export default function ConcertList({ concerts }: { concerts: Concert[] }) {
                             onClick={() => handleDelete(concert.id)}
                             className="text-red-600 hover:text-red-800 text-sm font-medium self-start md:self-center"
                         >
-                            🗑 Supprimer
+                            Supprimer
+                        </button>
+                        <button
+                            onClick={() => onEdit(concert)}
+                            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                        >
+                            Modifier
                         </button>
                     </div>
                 ))}

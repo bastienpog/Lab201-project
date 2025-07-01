@@ -4,9 +4,11 @@ import { deleteDoc, doc } from "firebase/firestore"
 import { db } from "../services/firebase"
 import type { News } from "@/pages/Admin"
 
-export default function NewsList({ news }: { news: News[] }) {
+export default function NewsList({ news, onEdit }: { news: News[]; onEdit: (news: News) => void }) {
     const handleDelete = async (id: string) => {
-        await deleteDoc(doc(db, "news", id))
+        if (window.confirm("Voulez-vous vraiment supprimer cette actualité ?")) {
+            await deleteDoc(doc(db, "news", id))
+        }
     }
 
     const formatDate = (timestamp: any) => {
@@ -40,12 +42,20 @@ export default function NewsList({ news }: { news: News[] }) {
                             <div className="flex-1">
                                 <div className="flex justify-between items-start mb-2">
                                     <h4 className="font-semibold text-lg text-gray-800">{newsItem.title}</h4>
-                                    <button
-                                        onClick={() => handleDelete(newsItem.id)}
-                                        className="text-red-600 hover:text-red-800 text-sm font-medium ml-4"
-                                    >
-                                        🗑 Supprimer
-                                    </button>
+                                    <div className="space-x-4">
+                                        <button
+                                            onClick={() => handleDelete(newsItem.id)}
+                                            className="text-red-600 hover:text-red-800 text-sm font-medium ml-4"
+                                        >
+                                            Supprimer
+                                        </button>
+                                        <button
+                                            onClick={() => onEdit(newsItem)}
+                                            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                                        >
+                                            Modifier
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <p className="text-gray-600 mb-2 text-sm">{newsItem.description}</p>
