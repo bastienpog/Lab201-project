@@ -1,15 +1,16 @@
-"use client"
-
 import { deleteDoc, doc } from "firebase/firestore"
 import { db } from "../services/firebase"
 import type { News } from "@/pages/Admin"
+import { useState } from "react"
 
 export default function NewsList({ news, onEdit }: { news: News[]; onEdit: (news: News) => void }) {
-    const handleDelete = async (id: string) => {
-        if (window.confirm("Voulez-vous vraiment supprimer cette actualité ?")) {
-            await deleteDoc(doc(db, "news", id))
-        }
-    }
+    const [toDelete, setToDelete] = useState<string | null>(null);
+
+    const confirmDelete = async () => {
+        if (!toDelete) return;
+        await deleteDoc(doc(db, "news", toDelete));
+        setToDelete(null);
+    };
 
     const formatDate = (timestamp: any) => {
         if (!timestamp) return "Date inconnue"
@@ -44,7 +45,7 @@ export default function NewsList({ news, onEdit }: { news: News[]; onEdit: (news
                                     <h4 className="font-semibold text-lg text-gray-800">{newsItem.title}</h4>
                                     <div className="space-x-4">
                                         <button
-                                            onClick={() => handleDelete(newsItem.id)}
+                                            onClick={() => setToDelete(newsItem.id)}
                                             className="text-red-600 hover:text-red-800 text-sm font-medium ml-4"
                                         >
                                             Supprimer
@@ -70,6 +71,27 @@ export default function NewsList({ news, onEdit }: { news: News[]; onEdit: (news
 
                 {news.length === 0 && <p className="text-gray-500 text-center py-8">Aucune actualité pour le moment</p>}
             </div>
+            {toDelete && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+                    <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm relative">
+                        <h4 className="text-lg font-semibold mb-4">Confirmer la suppression</h4>
+                        <p className="mb-6 text-gray-700">Voulez-vous vraiment supprimer ce concert ?</p>
+                        <div className="flex justify-end gap-3">
+                            <button
+                                onClick={() => setToDelete(null)}
+                                className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-700"                         >
+                                Annuler
+                            </button>
+                            <button
+                                onClick={confirmDelete}
+                                className="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white"
+                            >
+                                Supprimer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
