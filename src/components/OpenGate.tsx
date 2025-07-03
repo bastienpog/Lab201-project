@@ -16,11 +16,7 @@ export default function OpenGate() {
     }, [opened]);
 
     return (
-        <div className="relative h-screen overflow-hidden">
-            <div className="relative z-10 p-10 text-center">
-                <h1 className="text-4xl font-bold">Bienvenue</h1>
-            </div>
-
+        <div className="fixed top-0 left-0 w-screen h-screen z-[9999] overflow-hidden">
             <motion.img
                 src="/stickers-rideau-metallique.jpg.jpg"
                 alt="Grille métallique"

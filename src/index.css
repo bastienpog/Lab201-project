@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.custom-cursor {
+  cursor: url("/Design_sans_titre-removebg-preview1.png"), auto !important;
+}
