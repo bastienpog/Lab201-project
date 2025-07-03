@@ -40,6 +40,8 @@ const Admin: React.FC = () => {
     const [activeSection, setActiveSection] = useState<ActiveSection>("concerts")
     const [editingConcert, setEditingConcert] = useState<Concert | null>(null)
     const [editingNews, setEditingNews] = useState<News | null>(null)
+    const [showConcertForm, setShowConcertForm] = useState(false)
+    const [showNewsForm, setShowNewsForm] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -109,9 +111,26 @@ const Admin: React.FC = () => {
 
             {activeSection === "concerts" && (
                 <div>
-                    <div className="mb-6">
-                        <h3 className="text-lg font-semibold mb-4">Ajouter un concert</h3>
-                        <ConcertForm />
+                    <div>
+                        <button
+                            onClick={() => setShowConcertForm((v) => !v)}
+                            className="flex items-center gap-2 font-semibold text-gray-700"
+                        >
+                            <span className={`${showConcertForm ? "mb-4" : ""}`}>{showConcertForm ? "Masquer le formulaire" : "Ajouter un concert"}</span>
+                            <svg
+                                className={`w-4 h-4 transform transition-transform duration-300 ${showConcertForm ? "rotate-180" : "rotate-0"}`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div className={`transition-all duration-300 overflow-hidden ${showConcertForm ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
+                            <ConcertForm />
+                        </div>
                     </div>
                     <hr className="my-8 border-gray-300" />
                     <ConcertList concerts={concerts} onEdit={setEditingConcert} />
@@ -127,8 +146,25 @@ const Admin: React.FC = () => {
             {activeSection === "news" && (
                 <div>
                     <div className="mb-6">
-                        <h3 className="text-lg font-semibold mb-4">Ajouter une actualité</h3>
-                        <NewsForm />
+                        <button
+                            onClick={() => setShowNewsForm((v) => !v)}
+                            className="flex items-center gap-2 font-semibold text-gray-700"
+                        >
+                            <span className={`${showNewsForm ? "mb-4" : ""}`}>{showNewsForm ? "Masquer le formulaire" : "Ajouter une actualité"}</span>
+                            <svg
+                                className={`w-4 h-4 transform transition-transform duration-300 ${showNewsForm ? "rotate-180" : "rotate-0"}`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div className={`transition-all duration-300 overflow-hidden ${showNewsForm ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
+                            <NewsForm />
+                        </div>
                     </div>
                     <hr className="my-8 border-gray-300" />
                     <NewsList news={news} onEdit={setEditingNews} />
