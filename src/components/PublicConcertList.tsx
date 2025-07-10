@@ -8,6 +8,7 @@ type Concert = {
     city: string;
     venue: string;
     country?: string;
+    isSoldOut?: boolean;
 };
 
 function formatDate(input: string): string {
@@ -75,13 +76,22 @@ export default function PublicConcertList() {
                 </div>
 
                 <div className="space-y-2 text-2xl">
-                    {concertDates.map(({ id, date, city, venue }) => (
+                    {concertDates.map(({ id, date, city, venue, isSoldOut }) => (
                         <div key={id} className="flex items-center space-x-8">
                             <span className="font-mono font-bold w-12">{formatDate(date)}</span>
                             <span className="font-bold">{city}</span>
                             <span className="text-gray-400" style={{
                                 fontFamily: "DotMatrixBold, sans-serif",
                             }}>{venue}</span>
+                            {isSoldOut && (
+                                <span
+                                    className="ml-2 px-2 py-1 bg-sky-300 text-white text-xs font-bold rounded"
+                                    title="Complet"
+                                    aria-label="Complet"
+                                >
+                                    SOLD OUT
+                                </span>
+                            )}
                         </div>
                     ))}
                 </div>

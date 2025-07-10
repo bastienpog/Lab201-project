@@ -42,7 +42,7 @@ export default function NewsList({ news, onEdit }: { news: News[]; onEdit: (news
 
                             <div className="flex-1">
                                 <div className="flex justify-between items-start mb-2">
-                                    <h4 className="font-semibold text-lg text-gray-800">{newsItem.title}</h4>
+                                    <h4 className="font-semibold text-lg text-gray-800 max-w-3/5">{newsItem.title}</h4>
                                     <div className="space-x-4">
                                         <button
                                             onClick={() => setToDelete(newsItem.id)}
