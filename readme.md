@@ -1,93 +1,86 @@
-# React Quickstart ⚡
+# 🎤 LAB\*201 – Site Événementiel (One-Page + Admin)
 
-A minimal and customizable React starter template to kickstart your projects with best practices.
+> Projet réalisé par le Groupe 1C dans le cadre de la formation [précisez le nom de la formation].
 
-## Features
+## 🌐 Démo en ligne
 
-- Vite - Fast build and development environment
-- React - Modern UI library for building interactive user interfaces
-- TypeScript - Stringly typed for better development experience
-- Tailwind CSS - Utility-first CSS framework
-- Eslint & Prettier - Code quality and formatting enforcement
-- React Router - Client-side routing made easy
+- **Site public** : [https://lab-201-7e147.web.app/](https://lab-201-7e147.web.app/)
+- **Interface Admin** : [https://lab-201-7e147.web.app/login](https://lab-201-7e147.web.app/login)
 
-## Getting started
+---
 
-### Prerequisites
+## 🚀 Objectif du projet
 
-- [Node JS](https://nodejs.org/)
-- [pnpm](https://pnpm.io/)
+LAB201 est un **site événementiel** conçu pour promouvoir une tournée musicale.  
+Le site se compose de deux parties :
 
-### Installation
+- Une **page publique** responsive présentant les dates, lieux et actualités.
+- Une **interface d'administration** sécurisée pour gérer dynamiquement le contenu (CRUD).
 
-#### Clone the repository
+---
 
-```sh
-git clone https://github.com/martin-dinahet/react-quickstart.git
-cd react-quickstart
-```
+## 🧱 Technologies utilisées
 
-#### Install dependencies
+### Frontend (Site One-Page + Admin)
 
-```sh
-pnpm install
-```
+- **React** – Composants modulaires pour une SPA performante
+- **TypeScript** – Typage statique pour fiabilité et maintenabilité
+- **Tailwind CSS** – Framework CSS utilitaire pour une mise en page rapide
+- **Framer Motion** – Animations fluides pour une UX moderne
+- **Lucide React** – Icônes modernes et personnalisables
+- **React Router** – Navigation SPA et protection des routes
 
-#### Development
+### Backend / Base de données
 
-Start the development server
+- **Firebase Authentication** – Authentification sécurisée par email/mot de passe
+- **Firebase Firestore** – Base de données NoSQL temps réel
+- **Firebase Hosting** – Déploiement rapide et sécurisé
 
-```sh
-pnpm dev
-```
+---
 
-Then, open [localhost:5173](http://localhost:5173) in your browser.
+## 🔐 Sécurité
 
-#### Build for production
+- **Formulaires** : Validation front-end (TypeScript + contraintes Tailwind)
+- **Authentification** : Email + mot de passe via Firebase Auth
+- **Routes protégées** : Accès restreint aux utilisateurs authentifiés
+- **Règles Firestore** :
+  - Lecture publique
+  - Écriture réservée aux admins
 
-```sh
-pnpm build
-```
+---
 
-#### Linting & Formatting
+## ⚙️ Fonctionnalités
 
-Run ESLint to check linting errors:
+### 🎛 Interface Admin
 
-```sh
-pnpm lint
-```
+- Connexion sécurisée
+- Gestion des **dates de tournée** :
+  - Création, modification, suppression
+  - Indicateur **"sold-out"**
+- Gestion des **actualités** :
+  - Ajout, modification, suppression
 
-Format code with Prettier:
+### 📱 Frontend (site public)
 
-```sh
-pnpm format
-```
+- Liste dynamique des dates
+- Filtrage des événements
+- Actualités récentes
+- Design responsive et animations modernes
 
-## Directory structure
+---
 
-```
-🗁 .
-├── 🗋 eslint.config.js
-├── 🗋 index.html
-├── 🗋 package.json
-├── 🗋 pnpm-lock.yaml
-├── 🗋 readme.md
-├── 🗋 tsconfig.app.json
-├── 🗋 tsconfig.json
-├── 🗋 tsconfig.node.json
-├── 🗋 vite.config.ts
-├── 🗁 public
-│   └── 🗋 favicon.svg
-└── 🗁 src
-    ├── 🗋 index.css
-    ├── 🗋 main.tsx
-    ├── 🗋 vite-env.d.ts
-    ├── 🗁 components
-    │   └── 🗋 example-component.tsx
-    ├── 🗁 layouts
-    │   └── 🗋 main-layout.tsx
-    ├── 🗁 lib
-    │   └── 🗋 utils.ts
-    └── 🗁 pages
-        └── 🗋 index.tsx
+## 📦 Déploiement
+
+### Prérequis
+
+- Node.js
+- npm ou yarn
+- Compte Firebase avec Firestore activé
+
+### Étapes
+
+```bash
+git clone https://github.com/bastienpog/Lab201-project
+cd Lab201-project
+npm install
 ```
