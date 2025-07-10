@@ -38,7 +38,7 @@ export default function Countdown() {
       <div className="text-center space-y-10">
         <div className="flex flex-col items-center space-y-2">
           <div
-            className="px-18 py-12 inline-block"
+            className="px-12 py-12 inline-block"
             style={{
               fontFamily: "DotMatrix, sans-serif",
             }}

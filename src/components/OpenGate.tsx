@@ -24,7 +24,7 @@ export default function OpenGate() {
     return (
         <div className="fixed top-0 left-0 w-screen h-screen z-[9999] overflow-hidden">
             <motion.img
-                src="/grille2.png"
+                src="/image1.png"
                 alt="Grille métallique"
                 className="absolute top-0 left-0 w-full h-full object-cover z-50 cursor-pointer"
                 initial={{ y: 0 }}

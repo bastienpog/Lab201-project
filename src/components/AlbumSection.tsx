@@ -2,7 +2,7 @@
 
 export default function AlbumSection() {
     return (
-        <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="flex items-center justify-center p-8">
             <div className="max-w-2xl mx-auto text-center">
                 <div className="mb-8">
                     <img
@@ -14,7 +14,7 @@ export default function AlbumSection() {
                     />
                 </div>
 
-                <h1 className="text-white text-4xl md:text-5xl font-light mb-6 tracking-wide">Black Hole Suprette</h1>
+                <h1 className="text-white text-4xl md:text-5xl font-light mb-6 tracking-wide">Black Hole Superette</h1>
 
                 <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-xl mx-auto font-light">
                     En franchissant les portes de Black Hole Suprette, tout bascule, les réserves sont faites de souvenirs, les

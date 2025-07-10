@@ -85,7 +85,7 @@ export default function NewsCarousel() {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-10">
                     <h2 className="text-4xl font-bold" style={{ fontFamily: "DotMatrix, sans-serif" }}>
-                        Dernières actualités
+                        Dernieres actualites
                     </h2>
                 </div>
 
@@ -95,7 +95,7 @@ export default function NewsCarousel() {
                             <div
                                 key={item.id}
                                 onClick={() => handleOpenModal(item)}
-                                className="bg-gray-900 cursor-pointer rounded-lg shadow hover:shadow-lg transition"
+                                className="bg-black border border-solid border-sky-300 cursor-pointer rounded-lg shadow hover:shadow-lg transition"
                             >
                                 {item.image && (
                                     <img src={item.image} alt={item.title} className="w-full h-48 object-cover rounded-t-lg" />
@@ -115,10 +115,10 @@ export default function NewsCarousel() {
 
                     {news.length > visibleCount && (
                         <div className="flex justify-between mt-8">
-                            <button onClick={handlePrev} className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded">
+                            <button onClick={handlePrev} className="px-4 py-2 bg-sky-300 hover:bg-sky-200 rounded">
                                 ← Précédent
                             </button>
-                            <button onClick={handleNext} className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded">
+                            <button onClick={handleNext} className="px-4 py-2 bg-sky-300 hover:bg-sky-200 rounded">
                                 Suivant →
                             </button>
                         </div>
