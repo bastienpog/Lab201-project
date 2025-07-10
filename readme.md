@@ -1,6 +1,6 @@
 # 🎤 LAB\*201 – Site Événementiel (One-Page + Admin)
 
-> Projet réalisé par le Groupe 1C dans le cadre de la formation [précisez le nom de la formation].
+> Projet réalisé par le Groupe 1C dans le cadre de notre formation.
 
 ## 🌐 Démo en ligne
 
